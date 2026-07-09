@@ -1,0 +1,26 @@
+create database Employee;
+USE Employee;
+create table Details( ID int PRIMARY KEY, Name VARCHAR(50) , 
+	Skill VARCHAR(50) ,Domain VARCHAR(50) , 
+    Salary DECIMAL(10,2), Address VARCHAR(100),Phone_Number VARCHAR(15));
+    INSERT INTO Details
+(ID, Name, Skill, Domain, Salary, Address, Phone_Number)
+VALUES
+(1, 'Rahul', 'java', 'Software Development', 45000.00, 'Coimbatore', '9485621748');
+
+INSERT INTO Details
+(ID, Name, Skill, Domain, Salary, Address, Phone_Number)
+VALUES
+(2, 'suji', 'pcb', 'pcb Development', 50000.00, 'Coimbatore', '98765435661');
+
+INSERT INTO Details
+(ID, Name, Skill, Domain, Salary, Address, Phone_Number)
+VALUES
+(103, 'kaviya', 'iot', 'Embedded Systems', 55000.00, 'Salem', '98767864312');
+drop database Employee;
+select*from Details;
+update Details set Salary = 78200 
+where ID = 1;
+update Details set Domain = 'pcb designer' 
+where ID = 2;
+delete from Details where ID=NULL; 
