@@ -1,0 +1,36 @@
+package sql;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.*;
+public class test {
+public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		String url="jdbc:mysql://localhost:3306/Employee";
+		String user ="root";
+		String password="11092006";
+		Connection con=null;
+		try {
+			 con=DriverManager.getConnection(url,user,password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("connected successfully");
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter Your ID");;
+		int ID =s.nextInt();
+		s.nextLine();
+		System.out.println("Enter your Name:");
+		String Name=s.nextLine();
+		String query = "INSERT INTO Details(ID, Name) VALUES(?, ?)";
+		PreparedStatement pst =con.prepareStatement(query);
+		pst.setInt(1, ID);
+		pst.setString(2, Name);
+		pst.executeUpdate();
+		pst.close();
+
+			}
+}
+
