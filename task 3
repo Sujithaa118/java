@@ -1,0 +1,71 @@
+package box;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class demo extends JFrame implements ActionListener {
+
+    JLabel l1,l2;
+    JTextField t1;
+    JPasswordField t2;
+    JButton b1;
+
+    demo() {
+
+        l1 = new JLabel("Username");
+        l1.setBounds(40,40,80,30);
+
+        t1 = new JTextField();
+        t1.setBounds(130,40,120,30);
+
+        l2 = new JLabel("Password");
+        l2.setBounds(40,90,80,30);
+
+        t2 = new JPasswordField();
+        t2.setBounds(130,90,120,30);
+
+        b1 = new JButton("Login");
+        b1.setBounds(100,150,100,30);
+
+        b1.addActionListener(this);
+
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(b1);
+
+        setTitle("Login Page");
+        setSize(350,250);
+        setLayout(null);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        String user = t1.getText();
+        String pass = String.valueOf(t2.getPassword());
+
+        if(user.equals("suji") && pass.equals("98765")) {
+
+            JFrame f = new JFrame("Home Page");
+            JLabel msg = new JLabel("Login Successful");
+            msg.setBounds(60,50,150,30);
+
+            f.add(msg);
+            f.setSize(300,200);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this,"Invalid Username or Password");
+        }
+    }
+
+    public static void main(String args[]) {
+        new demo();
+    }
+}
